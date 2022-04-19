@@ -1,11 +1,11 @@
-from django.conf.urls import url
+from django.conf.urls import path
 from . import views
 
 app_name = "django_saml2_auth"
 
 urlpatterns = [
-    url(r"^acs/$", views.acs, name="acs"),
-    url(r"^welcome/$", views.welcome, name="welcome"),
-    url(r"^denied/$", views.denied, name="denied"),
-    url(r"^finish-logout/$", views.finish_signout, name="finish-logout"),
+    path("acs/", views.acs, name="acs"),
+    path("welcome/", views.welcome, name="welcome"),
+    path("denied/", views.denied, name="denied"),
+    path("finish-logout/", views.finish_signout, name="finish-logout"),
 ]
