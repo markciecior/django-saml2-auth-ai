@@ -30,7 +30,10 @@ except:
     import urllib.error
     import urllib.parse
 
-import collections.Mapping
+try:
+    from collections.abc import Mapping
+except ImportError:
+    from collections import Mapping
 
 if parse_version(get_version()) >= parse_version("1.7"):
     from django.utils.module_loading import import_string
