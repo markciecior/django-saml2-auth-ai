@@ -30,7 +30,7 @@ except:
     import urllib.error
     import urllib.parse
 
-import collections
+import collections.Mapping
 
 if parse_version(get_version()) >= parse_version("1.7"):
     from django.utils.module_loading import import_string
@@ -83,7 +83,7 @@ def get_reverse(objs):
 def _merge_dict(d1, d2):
     for k, v2 in d2.items():
         v1 = d1.get(k)
-        if isinstance(v1, collections.Mapping) and isinstance(v2, collections.Mapping):
+        if isinstance(v1, Mapping) and isinstance(v2, Mapping):
             _merge_dict(v1, v2)
         else:
             d1[k] = v2

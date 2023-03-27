@@ -14,12 +14,12 @@ with open(path.join(here, 'README.rst'), 'rb') as f:
 
 setup(
     name='django-saml2-auth-ai',
-    version='2.1.6',
+    version='2.1.9',
 
     description='Django SAML2 Authentication AI',
     long_description=long_description,
 
-    url='https://github.com/andersinno/django-saml2-auth-ai',
+    url='https://github.com/markciecior/django-saml2-auth-ai',
 
     author='Anders Innovations',
     author_email='info@anders.fi',
@@ -52,6 +52,10 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
 
     keywords='Django, SAML2, authentication, SSO',
