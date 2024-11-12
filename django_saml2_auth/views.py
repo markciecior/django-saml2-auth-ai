@@ -9,7 +9,7 @@ from saml2.client import Saml2Client
 from saml2.config import Config as Saml2Config
 
 from django import get_version
-from pkg_resources import parse_version
+#from pkg_resources import parse_version
 from django.conf import settings
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
@@ -35,10 +35,10 @@ try:
 except ImportError:
     from collections import Mapping
 
-if parse_version(get_version()) >= parse_version("1.7"):
-    from django.utils.module_loading import import_string
-else:
-    from django.utils.module_loading import import_by_path as import_string
+#if parse_version(get_version()) >= parse_version("1.7"):
+from django.utils.module_loading import import_string
+#else:
+#    from django.utils.module_loading import import_by_path as import_string
 
 user_model = get_user_model()
 
@@ -61,10 +61,10 @@ def get_default_next_url():
 
 def get_reverse(objs):
     """In order to support different django version, I have to do this """
-    if parse_version(get_version()) >= parse_version("2.0"):
-        from django.urls import reverse
-    else:
-        from django.core.urlresolvers import reverse
+    #if parse_version(get_version()) >= parse_version("2.0"):
+    from django.urls import reverse
+    #else:
+    #    from django.core.urlresolvers import reverse
     if objs.__class__.__name__ not in ["list", "tuple"]:
         objs = [objs]
 
@@ -167,10 +167,10 @@ def _create_new_user(user_identity):
         Group.objects.get(name=x)
         for x in settings.SAML2_AUTH.get("NEW_USER_PROFILE", {}).get("USER_GROUPS", [])
     ]
-    if parse_version(get_version()) >= parse_version("2.0"):
-        user.groups.set(groups)
-    else:
-        user.groups = groups
+    #if parse_version(get_version()) >= parse_version("2.0"):
+    user.groups.set(groups)
+    #else:
+    #    user.groups = groups
     user.is_active = settings.SAML2_AUTH.get("NEW_USER_PROFILE", {}).get(
         "ACTIVE_STATUS", True
     )
